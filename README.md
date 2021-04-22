@@ -1,2 +1,2 @@
 # Asteroids2D
-2D arcade top-down shooter game
+C++ 2D arcade top-down shooter game for mobiles
