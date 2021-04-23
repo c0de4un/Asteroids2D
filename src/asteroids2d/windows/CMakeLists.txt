@@ -3,7 +3,7 @@
 # // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # @about
-# Asteroids2D - 2D top-down arcade shooter.
+# Asteroids2D.Windows
 #
 # License: see "LICENSE" file.
 #
@@ -11,7 +11,7 @@
 # - C++ 11 with exceptions support;
 #
 # @output
-# - STATIC Library || Executable;
+# - Executable;
 #
 # @tests
 # - none;
@@ -29,19 +29,8 @@ cmake_minimum_required ( VERSION 3.6 FATAL_ERROR ) # QT & Android
 # CONSTANTS
 # =================================================================================
 
-set( CMAKE_INCLUDES_DIR "src/zeroSDK/cmake/" )
-set( CMAKE_GAME_INCLUDES_DIR "cmake/" )
-
-set( ASTEROIDS_SRC_DIR "src/asteroids2d" )
-set( ASTEROIDS_PUBLIC_DIR "${ASTEROIDS_SRC_DIR}/public/" )
-set( ASTEROIDS_PRIVATE_DIR "${ASTEROIDS_SRC_DIR}/private/" )
-
-# =================================================================================
-# CONFIGS
-# =================================================================================
-
-# Platform
-include( "${CMAKE_INCLUDES_DIR}platform.cmake" )
+set ( ASTEROIDS_PUBLIC_DIR "public/" )
+set ( ASTEROIDS_PRIVATE_DIR "private/" )
 
 # =================================================================================
 # OPTIONS
@@ -54,13 +43,13 @@ set ( CXX_VERSION 11 )
 # =================================================================================
 
 # Project Name
-set ( PROJECT_NAME "Asteroids2D" )
+set ( PROJECT_NAME "Asteroids2D.Windows" )
 
 # Project Version
 set ( PROJECT_VERSION 0.0.1 )
 
 # Project Description
-set ( PROJECT_DESCRIPTION "Asteroids2D" )
+set ( PROJECT_DESCRIPTION "Asteroids2D.Windows Executable" )
 
 # Configure Project
 project ( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} DESCRIPTION ${PROJECT_DESCRIPTION} LANGUAGES C CXX )
@@ -82,17 +71,38 @@ set(CMAKE_AUTORCC ON)
 set ( CMAKE_CXX_FLAGS "-fexceptions -fcxx-exceptions" ${CMAKE_CXX_FLAGS} )
 
 # =================================================================================
-# GAME
+# HEADERS
 # =================================================================================
 
-# Core
-add_subdirectory ( "${ASTEROIDS_SRC_DIR}/core" )
+set ( ASTEROIDS_GAME_HEADERS
+    "${ASTEROIDS_PUBLIC_DIR}main.hpp" )
 
-# Platform.Executable
-if ( WINDOWS )
-    add_subdirectory ( "${ASTEROIDS_SRC_DIR}/windows" )
-else ( WINDOWS )
-    message ( FATAL_ERROR "${PROJECT_NAME} - unsupported platform for executable" )
-endif ( WINDOWS )
+# =================================================================================
+# SOURCES
+# =================================================================================
+
+set ( ASTEROIDS_GAME_SOURCES
+    "${ASTEROIDS_PRIVATE_DIR}main.cpp" )
+
+# =================================================================================
+# RESOURCES
+# =================================================================================
+
+set ( EXECUTABLE_RESOURCES "${CMAKE_SOURCE_DIR}/res/windows/win_res.rc" )
+
+# =================================================================================
+# BUILD EXECUTABLE
+# =================================================================================
+
+set ( BUILD_TARGET "Asteroids2D" )
+
+# Add Executable-Object
+add_executable(
+    ${BUILD_TARGET} ${ASTEROIDS_GAME_HEADERS} ${ASTEROIDS_GAME_SOURCES} ${EXECUTABLE_RESOURCES} )
+
+# Configure Executable-Object
+set_target_properties ( ${BUILD_TARGET} PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin" )
 
 # ------------------------------------------------------------------------------
