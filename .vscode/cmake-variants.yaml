@@ -1,0 +1,45 @@
+buildType:
+  default: debug
+  description: Build-Type
+  choices:
+    debug:
+      short: Debug
+      long: Build with enabled Debugging-Features
+      buildType: Debug
+    release:
+      short: Release
+      long: Build without Debug-Features
+      buildType: Release
+
+useOpenGL:
+  default: 'yes'
+  choices:
+    'yes':
+      short: OpenGL
+      long: Enable OpenGL API support
+      settings:
+        ZERO_USE_GL: yes
+    'no':
+      short: No OpenGL
+      long: Disable OpenGL API support
+      settings:
+        ZERO_USE_GL: no
+
+zeroOutput:
+  default: 'EXPORT'
+  choices:
+    'EXPORT':
+      short: Export Sources
+      long: Export Headers & Sources to parent-scope
+      settings:
+        ZERO_BUILD: 'EXPORT'
+    'STATIC':
+      short: STATIC
+      long: STATIC Library
+      settings:
+        ZERO_BUILD: 'STATIC'
+    'SHARED':
+      short: SHARED
+      long: SHARED Library
+      settings:
+        ZERO_BUILD: 'SHARED'

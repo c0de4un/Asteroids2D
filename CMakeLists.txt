@@ -95,4 +95,12 @@ else ( WINDOWS )
     message ( FATAL_ERROR "${PROJECT_NAME} - unsupported platform for executable" )
 endif ( WINDOWS )
 
+# =================================================================================
+# ENGINE
+# =================================================================================
+
+# zeroSDK
+set ( ZERO_SRC_DIR "src/zeroSDK" )
+add_subdirectory ( ${ZERO_SRC_DIR} )
+
 # ------------------------------------------------------------------------------

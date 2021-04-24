@@ -7,7 +7,7 @@
             "inheritEnvironments": [ "msvc_x64_x64" ],
             "buildRoot": "${projectDir}\\build\\${name}",
             "installRoot": "${projectDir}\\install\\${name}",
-            "cmakeCommandArgs": "",
+            "cmakeCommandArgs": "-DZERO_BUILD=EXPORT",
             "buildCommandArgs": "",
             "ctestCommandArgs": ""
         },
@@ -17,11 +17,10 @@
             "configurationType": "Debug",
             "buildRoot": "${projectDir}\\build\\${name}",
             "installRoot": "${projectDir}\\install\\${name}",
-            "cmakeCommandArgs": "",
+            "cmakeCommandArgs": "-DZERO_BUILD=EXPORT",
             "buildCommandArgs": "",
             "ctestCommandArgs": "",
-            "inheritEnvironments": [ "clang_cl_x64_x64" ],
-            "variables": []
+            "inheritEnvironments": [ "clang_cl_x64_x64" ]
         }
     ]
 }
