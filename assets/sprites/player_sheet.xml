@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker https://www.codeandweb.com/texturepacker -->
+<!-- $TexturePacker:SmartUpdate:480ecdc21d725a4fc7a24686f685a398:ffea7864043052a4b6671e1f7a7a5408:cb12ff96b1e595e4ecef39c3e51f31a2$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="player_sheet.png" width="384" height="171">
+    <sprite n="player_sprite_128x171.png" x="0" y="0" w="128" h="171"/>
+    <sprite n="player_sprite_turn_left_128x171.png" x="128" y="0" w="128" h="171"/>
+    <sprite n="player_sprite_turn_right_128x171.png" x="256" y="0" w="128" h="171"/>
+</TextureAtlas>
